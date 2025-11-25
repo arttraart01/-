@@ -1,0 +1,5 @@
+{
+  "name": "ClipMasher AI",
+  "description": "Upload clips and auto-generate 15s TikTok-ready viral videos in batches (5, 10, 15, 20). Uses AI to remix and title your content.",
+  "requestFramePermissions": []
+}
