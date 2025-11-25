@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { ClipUploader } from './components/ClipUploader';
 import { MixPlayer } from './components/MixPlayer';
 import { VideoClip, Mix } from './types';
@@ -208,18 +208,19 @@ function App() {
                         <p>No clips yet. Upload videos to start remixing!</p>
                     </div>
                  ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                    /* Updated Grid: More columns for smaller thumbnails (3 on mobile, 4 sm, 6 md) */
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                         {clips.map((clip) => (
                             <div key={clip.id} className="relative group aspect-[9/16] bg-black rounded-lg overflow-hidden border border-slate-700">
                                 <video src={clip.url} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-                                <div className="absolute bottom-1 right-1 bg-black/60 text-white text-[10px] px-1 rounded">
+                                <div className="absolute bottom-1 right-1 bg-black/60 text-white text-[9px] px-1 rounded">
                                     ~{CLIP_DURATION}s
                                 </div>
                                 <button 
                                     onClick={() => handleDeleteClip(clip.id)}
-                                    className="absolute top-2 right-2 bg-red-500/80 hover:bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                                    className="absolute top-1 right-1 bg-red-500/80 hover:bg-red-600 text-white p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
                                         <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
                                     </svg>
                                 </button>

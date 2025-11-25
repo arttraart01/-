@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
+import { useRef, ChangeEvent, FC } from 'react';
 import { VideoClip } from '../types';
 
 interface ClipUploaderProps {
   onClipsAdded: (clips: VideoClip[]) => void;
 }
 
-export const ClipUploader: React.FC<ClipUploaderProps> = ({ onClipsAdded }) => {
+export const ClipUploader: FC<ClipUploaderProps> = ({ onClipsAdded }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (!files) return;
 

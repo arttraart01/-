@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, FC } from 'react';
 import { Mix } from '../types';
 
 interface MixPlayerProps {
   mix: Mix;
 }
 
-export const MixPlayer: React.FC<MixPlayerProps> = ({ mix }) => {
+export const MixPlayer: FC<MixPlayerProps> = ({ mix }) => {
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
